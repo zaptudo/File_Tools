@@ -14,9 +14,9 @@ def download_length(response, output, length):
 
     for time in range(times):
         output.write(response.read(BUFF_SIZE))
-        print 'Baixados %d' % ( (float(time + 1) / float(times)) * 100 )
+        print 'Downloaded %d%%' % ( (float(time + 1) / float(times)) * 100 )
 
-    print 'Download concluído'
+    print 'Download complete'
 
 
 def download(response, output):
@@ -32,13 +32,13 @@ def download(response, output):
             break
 
         output.write(data)
-        print('Baixados {bytes}'.format(bytes=total_downloaded))
+        print('Downloaded {bytes} bytes'.format(bytes=total_downloaded))
 
-    print "Download concluído"
+    print "Download complete"
 
 def main():
     response = urlopen(sys.argv[1])
-    out_file = io.FileIO('saida.zip', mode='w')
+    out_file = io.FileIO('dados.zip', mode='w')
 
     info = response.info()
     content_length = info['Content-Length']
@@ -51,7 +51,7 @@ def main():
 
     response.close()
     out_file.close()
-    print('Concluído')
+    print('Finished')
 
 if __name__ == '__main__':
     main()
