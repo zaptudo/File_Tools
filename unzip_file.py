@@ -10,7 +10,7 @@ def main(path):
         print 'File {file} does not exists'.format(file=path)
         sys.exit(-1)
     else:
-        zfile = zipfile.ZipFile(file=path, mode='w')
+        zfile = zipfile.ZipFile(path)
         zfile.extractall()
         print 'Extraction finished'
         
